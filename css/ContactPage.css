@@ -11,7 +11,7 @@ body {
     color: var(--text-main)
 }
 
-.app-container {
+.contact-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,21 +33,20 @@ body {
 }
 
 
-.form-card header {
+.contact-content header {
     font-size: 2rem;
 }
 
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Equal split for desktop */
-  gap: 40px;
+  gap: 10rem;
   margin-top: 40px;
 }
 
-.form-card {
-    border-radius: 2rem;
+.contact-col {
     padding: 2rem;
-    max-inline-size: 20rem;
+    /* max-inline-size: 20rem; */
     gap: 1rem;
 }
 
@@ -63,11 +62,31 @@ body {
     gap: .2rem;
 }
 
+.form-group input, 
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--border), black 20%);
+}
 
 .submit-button {
+    background-color: var(--primary);
     inline-size: min-content;
     padding: .5em;
     border-radius: .5em;
     align-self: center;
 }
 
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr; /* Stacks vertically on smaller screens */
+    gap: 30px;
+  }
+}
