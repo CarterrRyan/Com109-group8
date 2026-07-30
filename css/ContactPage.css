@@ -1,0 +1,29 @@
+body {
+    font-family: Tahoma, system-ui;
+}
+
+.app-container {
+    display: flex;
+
+}
+
+.form-card {
+    border: 3px solid black;
+    border-radius: 2rem;
+    padding: 2rem;
+    inline-size: 50%;
+    max-inline-size: 20rem;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.submit-button {
+    inline-size: min-content;
+    padding: .5em;
+    border-radius: .5em;
+}
+
