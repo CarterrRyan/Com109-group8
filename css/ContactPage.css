@@ -10,14 +10,18 @@ body {
     background-color: var(--bg-surface);
     color: var(--text-main)
 }
+
 .app-container {
-    max-inline-size: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/Office.png");
     background-size: cover;
     background-position: center;
+    inline-size: 100dvw;
     height: 250px;
     display: flex;
     align-items: center;
@@ -33,10 +37,14 @@ body {
     font-size: 2rem;
 }
 
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Equal split for desktop */
+  gap: 40px;
+  margin-top: 40px;
+}
 
 .form-card {
-    border: 3px solid black;
-    background-color: var(--bg-main);
     border-radius: 2rem;
     padding: 2rem;
     max-inline-size: 20rem;
