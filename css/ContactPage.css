@@ -78,10 +78,17 @@ body {
 
 .submit-button {
     background-color: var(--primary);
+    color: white;
+    border: none;
     inline-size: min-content;
     padding: .5em;
     border-radius: .5em;
     align-self: center;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: color-mix(in srgb, var(--primary), white 30%);
 }
 
 @media (max-width: 768px) {
