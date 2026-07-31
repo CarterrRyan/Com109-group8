@@ -1,10 +1,23 @@
 $(document).ready(function () {
+  const $form = $("#contact-form");
   const $emailInput = $("#email");
   const $emailError = $("#email-error");
   const $nameInput = $("#name");
   const $nameError = $("#name-error");
   const $messageInput = $("#message");
   const $messageError = $("#message-error");
+
+  const $modal = $("#successModal");
+  const $closeModalBtn = $("#closeModalBtn");
+
+  function showModal() {
+    $modal.addClass("is-visible").attr("aria-hidden", "false");
+  }
+
+  function closeModal() {
+    $modal.removeClass("is-visible").attr("aria-hidden", "true");
+    $form[0].reset(); // Reset form fields after closing
+  }
 
   function validateEmail() {
     const validity = $emailInput[0].validity;
@@ -65,7 +78,7 @@ $(document).ready(function () {
   $nameInput.on("input", validateName);
   $messageInput.on("input", validateMessage);
 
-  $("#contact-form").on("submit", function (event) {
+  $form.on("submit", function (event) {
     event.preventDefault();
 
     const isEmailValid = validateEmail();
@@ -73,7 +86,15 @@ $(document).ready(function () {
     const isMessageValid = validateMessage();
 
     if (isEmailValid && isNameValid && isMessageValid) {
-      alert("Form submitted successfully.");
+      showModal();
+    }
+  });
+
+  $closeModalBtn.on("click", closeModal);
+
+  $modal.on("click", function (e) {
+    if ($(e.target).is("#successModal")) {
+      closeModal();
     }
   });
 });
