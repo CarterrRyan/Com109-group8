@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/properties.css" />
+  </head>
+  <body>
+    <!-- <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#" class="logo">Fernhill<span class="logo-dot">.</span></a>
+      <p class="tagline">Properties worth staying for</p>
+    </div>
+  </header> -->
+
+    <main class="wrap">
+      <section class="hero">
+        <h1>Find your next address</h1>
+        <p>
+          Browse our current listings below &mdash; filter by type or sort by
+          price to narrow things down.
+        </p>
+      </section>
+
+      <section class="controls" aria-label="Filter and sort listings">
+        <div class="control-group">
+          <label for="type-filter">Type</label>
+          <select id="type-filter">
+            <option value="all">All types</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Cottage">Cottage</option>
+            <option value="Bungalow">Bungalow</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select">
+            <option value="default">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="bedrooms-desc">Most Bedrooms</option>
+          </select>
+        </div>
+
+        <div class="control-group search-group">
+          <label for="search-input">Search</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by address or title&hellip;"
+          />
+        </div>
+
+        <p class="result-count">
+          <span id="result-count">0</span> properties found
+        </p>
+      </section>
+
+      <section id="property-grid" class="property-grid" aria-live="polite">
+      </section>
+
+      <p id="empty-state" class="empty-state" hidden>
+        No properties match your search. Try clearing a filter.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Fernhill Properties &mdash; coursework demo listing site.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/properties.js"></script>
+  </body>
+</html>
