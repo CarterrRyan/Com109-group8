@@ -12,4 +12,9 @@
   --primary: #2d3a2f;
   --accent: #d4a373;
   --border: #e6e1c5;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
+
+

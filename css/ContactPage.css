@@ -1,6 +1,6 @@
 body {
-    font-family: Tahoma, system-ui;
-    background-color: var(--bg-surface);
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
     color: var(--text-main)
 }
 
@@ -11,22 +11,46 @@ body {
 }
 
 .contact-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/Office.png");
-    background-size: cover;
-    background-position: center;
+    background-color: var(--bg-main);
+    position: relative;
+    overflow: hidden;
     inline-size: 100dvw;
     height: 250px;
+    font-family: var(--font-display);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.contact-hero::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4 ) 50%, var(--bg-main) 100%), url("../images/Office.png");
+    background-size: cover;
+    background-position: center;
+    opacity: .5;
+    z-index: 1;
+    block-size: calc(100% + 2px);
+    margin-bottom: -2px;
+}
+
+.contact-hero header {
+    position: relative;
+    z-index: 2;
     font-size: 2.5rem;
+    font-weight: 600;
     letter-spacing: 2px;
-    color: #ffffff;
+    color: var(--primary);
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 10);
 }
 
 
+
+
 .contact-content header, .modal-card header {
+    font-family: var(--font-display);
+    color: var(--primary);
     font-size: 2rem;
 }
 
@@ -67,7 +91,7 @@ body {
     border-color: color-mix(in srgb, var(--border), black 20%);
 }
 
-input.is-invalid {
+input.is-invalid, textarea.is-invalid{
     border-color: #d9534f;
     background-color: #fdf7f7;
 }
