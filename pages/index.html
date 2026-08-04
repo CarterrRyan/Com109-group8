@@ -1,10 +1,147 @@
-<html>
-    <head>
-        <title>Com 109</title>
-        <link rel="stylesheet" href="../css/main.css">
-        <script src="../js/main.js" defer></script>
-    </head>
-    <body>
-        <p>hello, world!</p>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fernhill | Properties worth staying for</title>
+    <meta name="description" content="Fernhill — sustainable, character-filled homes for people who want to put down roots." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+
+    <!-- <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="#" class="logo">Fernhill<span class="logo-dot">.</span></a>
+        <p class="tagline">Properties worth staying for</p>
+      </div>
+    </header> -->
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="hero-media" role="img" aria-label="A warm, sunlit timber-clad home surrounded by greenery"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow">Sustainable homes, ethically sourced</p>
+          <h1>Homes rooted<br /> in place.</h1>
+          <p class="hero-sub">We find homes built from what the land gives — timber, stone, light — and match them with people who plan on staying a while.</p>
+          <div class="hero-actions">
+            <a href="properties.html" class="btn btn-ochre">Browse properties</a>
+            <a href="#why" class="btn btn-outline">Why Fernhill</a>
+          </div>
+        </div>
+
+        <a href="#why" class="scroll-cue" aria-label="Scroll to next section">
+          <span></span>
+        </a>
+      </section>
+
+      <!-- ================= STATS STRIP ================= -->
+      <section class="stats-strip" aria-label="Fernhill at a glance">
+        <div class="stat">
+          <p class="stat-num">128</p>
+          <p class="stat-label">homes rehomed since 2019</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">94%</p>
+          <p class="stat-label">built with reclaimed or local materials</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">6</p>
+          <p class="stat-label">regions we currently list in</p>
+        </div>
+      </section>
+
+      <!-- ================= WHY FERNHILL (click-to-reveal) ================= -->
+      <section class="why" id="why">
+        <div class="section-head">
+          <p class="eyebrow eyebrow-dark">Why Fernhill</p>
+          <h2>Every listing earns its place here.</h2>
+          <p class="section-sub">We turn away more homes than we list. Tap a principle to see what it means in practice.</p>
+        </div>
+
+        <div class="principles" id="principles">
+          <article class="principle" data-open="false">
+            <button class="principle-toggle" aria-expanded="false">
+              <span class="principle-index">01</span>
+              <span class="principle-title">Built to last, not to flip</span>
+              <span class="principle-icon" aria-hidden="true"></span>
+            </button>
+            <div class="principle-panel">
+              <p>We inspect the bones before the finish. Structural timber, foundation health and insulation are checked before a home ever gets photographed — long before it earns a listing page.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-open="false">
+            <button class="principle-toggle" aria-expanded="false">
+              <span class="principle-index">02</span>
+              <span class="principle-title">Materials with a known origin</span>
+              <span class="principle-icon" aria-hidden="true"></span>
+            </button>
+            <div class="principle-panel">
+              <p>Reclaimed oak, local stone, low-VOC finishes. Where we can trace where a material came from, we tell you — in the listing, not in small print.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-open="false">
+            <button class="principle-toggle" aria-expanded="false">
+              <span class="principle-index">03</span>
+              <span class="principle-title">Neighbourhoods, not just addresses</span>
+              <span class="principle-icon" aria-hidden="true"></span>
+            </button>
+            <div class="principle-panel">
+              <p>Every listing includes a short walk-through of what's nearby on foot — the baker, the allotments, the school run — written by someone who actually walked it.</p>
+            </div>
+          </article>
+
+          <article class="principle" data-open="false">
+            <button class="principle-toggle" aria-expanded="false">
+              <span class="principle-index">04</span>
+              <span class="principle-title">One agent, start to finish</span>
+              <span class="principle-icon" aria-hidden="true"></span>
+            </button>
+            <div class="principle-panel">
+              <p>No handoffs between viewing and completion. The person who shows you the home is the person who carries the paperwork home.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= FEATURED PROPERTIES ================= -->
+      <section class="featured">
+        <div class="section-head">
+          <p class="eyebrow eyebrow-dark">Featured this month</p>
+          <h2>A few homes currently finding people.</h2>
+        </div>
+
+        <div class="property-grid" id="featured-grid"></div>
+
+        <div class="featured-cta">
+          <a href="properties.html" class="btn btn-outline-dark">See all properties</a>
+        </div>
+      </section>
+
+      <!-- ================= CTA BANNER ================= -->
+      <section class="cta-banner">
+        <h2>Thinking about your next move?</h2>
+        <p>Tell us what you're looking for and we'll get in touch — no automated listings, no cold calls.</p>
+        <a href="contact.html" class="btn btn-cream">Get in touch</a>
+      </section>
+    </main>
+
+    <!-- <footer class="site-footer">
+      ...footer markup pending Ryan's shared component...
+    </footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/index.js"></script>
+  </body>
 </html>
