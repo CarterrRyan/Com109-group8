@@ -1,0 +1,169 @@
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-main)
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-hero {
+    background-color: var(--bg-main);
+    position: relative;
+    overflow: hidden;
+    inline-size: 100dvw;
+    height: 250px;
+    font-family: var(--font-display);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-hero::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4 ) 50%, var(--bg-main) 100%), url("../images/Office.png");
+    background-size: cover;
+    background-position: center;
+    opacity: .5;
+    z-index: 1;
+    block-size: calc(100% + 2px);
+    margin-bottom: -2px;
+}
+
+.contact-hero header {
+    position: relative;
+    z-index: 2;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 10);
+}
+
+
+
+
+.contact-content header, .modal-card header {
+    font-family: var(--font-display);
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    margin-top: 40px;
+    gap: 10rem;
+}
+
+.contact-col {
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--border), black 20%);
+}
+
+input.is-invalid, textarea.is-invalid{
+    border-color: #d9534f;
+    background-color: #fdf7f7;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.active {
+    display: block;
+}
+
+.confirm-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    inline-size: min-content;
+    padding: .5em;
+    border-radius: .5em;
+    align-self: center;
+    transition: background-color 0.2s ease;
+}
+
+.confirm-button:hover {
+    background-color: color-mix(in srgb, var(--primary), white 30%);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    inline-size: 100vw;
+    block-size: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background-color: var(--bg-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    max-inline-size: 400px;
+    inline-size: 90%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.modal-card * {
+    margin: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr; 
+    gap: 3rem;
+  }
+}
