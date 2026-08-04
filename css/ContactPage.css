@@ -58,6 +58,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     margin-top: 40px;
+    gap: 10rem;
 }
 
 .contact-col {
@@ -82,7 +83,8 @@ body {
     padding: 12px;
     border: 2px solid var(--border);
     border-radius: 4px;
-    font-size: 0.95rem;
+    font-family: inherit;
+    font-size: 0.9rem;
 }
 
 .form-group input:focus,
@@ -162,6 +164,6 @@ input.is-invalid, textarea.is-invalid{
 @media (max-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr; 
-    gap: 30px;
+    gap: 3rem;
   }
 }

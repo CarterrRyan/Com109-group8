@@ -10,6 +10,12 @@ $(document).ready(function () {
   const $modal = $("#successModal");
   const $closeModalBtn = $("#closeModalBtn");
 
+  const savedData = JSON.parse(sessionStorage.getItem("formData") || "{}");
+
+  if (savedData.name) $nameInput[0].value = savedData.name;
+  if (savedData.email) $emailInput[0].value = savedData.email;
+  if (savedData.message) $messageInput[0].value = savedData.message;
+
   function showModal() {
     $modal.addClass("is-visible").attr("aria-hidden", "false");
   }
@@ -74,9 +80,25 @@ $(document).ready(function () {
     return false;
   }
 
-  $emailInput.on("input", validateEmail);
-  $nameInput.on("input", validateName);
-  $messageInput.on("input", validateMessage);
+  function saveInput(e) {
+    const sessionData = JSON.parse(sessionStorage.getItem("formData") || "{}");
+    sessionData[e.target.name] = e.target.value;
+    sessionStorage.setItem("formData", JSON.stringify(sessionData));
+  }
+
+  $emailInput.on("input", function (e) {
+    validateEmail();
+    saveInput(e);
+  });
+
+  $nameInput.on("input", function (e) {
+    validateName();
+    saveInput(e);
+  });
+  $messageInput.on("input", function (e) {
+    validateMessage();
+    saveInput(e);
+  });
 
   $form.on("submit", function (event) {
     event.preventDefault();
@@ -87,6 +109,7 @@ $(document).ready(function () {
 
     if (isEmailValid && isNameValid && isMessageValid) {
       showModal();
+      sessionStorage.removeItem("formData");
     }
   });
 
