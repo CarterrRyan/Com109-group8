@@ -16,15 +16,13 @@ $(document).ready(function () {
   if (savedData.email) $emailInput[0].value = savedData.email;
   if (savedData.message) $messageInput[0].value = savedData.message;
 
-  function showModal() {
-    $modal.addClass("is-visible").attr("aria-hidden", "false");
+  function saveInput(e) {
+    const sessionData = JSON.parse(sessionStorage.getItem("formData") || "{}");
+    sessionData[e.target.name] = e.target.value;
+    sessionStorage.setItem("formData", JSON.stringify(sessionData));
   }
 
-  function closeModal() {
-    $modal.removeClass("is-visible").attr("aria-hidden", "true");
-    $form[0].reset(); // Reset form fields after closing
-  }
-
+  // FORM FIELDS VALIDATION
   function validateEmail() {
     const validity = $emailInput[0].validity;
     if (validity.valid) {
@@ -80,12 +78,17 @@ $(document).ready(function () {
     return false;
   }
 
-  function saveInput(e) {
-    const sessionData = JSON.parse(sessionStorage.getItem("formData") || "{}");
-    sessionData[e.target.name] = e.target.value;
-    sessionStorage.setItem("formData", JSON.stringify(sessionData));
+  // MODAL UI MANAGEMENT
+  function showModal() {
+    $modal.addClass("is-visible").attr("aria-hidden", "false");
   }
 
+  function closeModal() {
+    $modal.removeClass("is-visible").attr("aria-hidden", "true");
+    $form[0].reset(); // Reset form fields after closing
+  }
+
+  // EVENT LISTENERS
   $emailInput.on("input", function (e) {
     validateEmail();
     saveInput(e);
@@ -107,14 +110,17 @@ $(document).ready(function () {
     const isNameValid = validateName();
     const isMessageValid = validateMessage();
 
+    // Submit form only if all individual validations pass
     if (isEmailValid && isNameValid && isMessageValid) {
       showModal();
       sessionStorage.removeItem("formData");
     }
   });
 
+  // Close modal via button click
   $closeModalBtn.on("click", closeModal);
 
+  // Close modal when clicking on the outer backdrop overlay
   $modal.on("click", function (e) {
     if ($(e.target).is("#successModal")) {
       closeModal();
