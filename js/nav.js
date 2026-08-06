@@ -35,7 +35,9 @@ $(function () {
     }
   });
 
-  const currentFile = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const currentFile = (
+    window.location.pathname.split("/").pop() || "index.html"
+  ).toLowerCase();
   $links.each(function () {
     const href = ($(this).attr("href") || "").toLowerCase();
     if (href === currentFile) {

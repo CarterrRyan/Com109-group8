@@ -12,9 +12,15 @@ $(document).ready(function () {
 
   const savedData = JSON.parse(sessionStorage.getItem("formData") || "{}");
 
+  const selectedProperty = JSON.parse(
+    localStorage.getItem("selectedProperty") || "{}",
+  );
+
   if (savedData.name) $nameInput[0].value = savedData.name;
   if (savedData.email) $emailInput[0].value = savedData.email;
   if (savedData.message) $messageInput[0].value = savedData.message;
+  if (selectedProperty.title)
+    $messageInput[0].value = `I am interested in the property: ${selectedProperty.title} located at ${selectedProperty.address}. Please provide more details.`;
 
   function saveInput(e) {
     const sessionData = JSON.parse(sessionStorage.getItem("formData") || "{}");
@@ -112,6 +118,11 @@ $(document).ready(function () {
 
     // Submit form only if all individual validations pass
     if (isEmailValid && isNameValid && isMessageValid) {
+      window.localStorage.setItem(
+        "interestedProperty",
+        JSON.stringify({ property: selectedProperty.id, interested: true }),
+      );
+      window.localStorage.removeItem("selectedProperty");
       showModal();
       sessionStorage.removeItem("formData");
     }
@@ -125,5 +136,9 @@ $(document).ready(function () {
     if ($(e.target).is("#successModal")) {
       closeModal();
     }
+  });
+
+  window.addEventListener("pagehide", () => {
+    localStorage.removeItem("selectedProperty");
   });
 });

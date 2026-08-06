@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../images/icon.svg" type="image/svg+xml">
-    <link rel="icon" href="../images/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="icon" href="../images/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../images/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
     <title>Fernhill | Properties worth staying for</title>
-    <meta name="description" content="Fernhill — sustainable, character-filled homes for people who want to put down roots." />
+    <meta
+      name="description"
+      content="Fernhill — sustainable, character-filled homes for people who want to put down roots."
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -17,20 +20,54 @@
 
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
     <main>
+      <header class="site-nav">
+        <div class="wrap nav-inner">
+          <a class="nav-logo" href="index.html" aria-label="Go to homepage">
+            <img src="../images/website_logo.png" alt="Fernhill logo" />
+          </a>
+          <button
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="nav-toggle-icon" aria-hidden="true"></span>
+          </button>
+          <nav id="primary-nav" class="nav-links" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactPage.html">Contact Us</a>
+          </nav>
+        </div>
+      </header>
       <!-- ================= HERO ================= -->
       <section class="hero">
-        <div class="hero-media" role="img" aria-label="A warm, sunlit timber-clad home surrounded by greenery"></div>
+        <div
+          class="hero-media"
+          role="img"
+          aria-label="A warm, sunlit timber-clad home surrounded by greenery"
+        ></div>
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
           <p class="eyebrow">Sustainable homes, ethically sourced</p>
-          <h1>Homes rooted<br /> in place.</h1>
-          <p class="hero-sub">We find homes built from what the land gives — timber, stone, light — and match them with people who plan on staying a while.</p>
+          <h1>
+            Homes rooted<br />
+            in place.
+          </h1>
+          <p class="hero-sub">
+            We find homes built from what the land gives — timber, stone, light
+            — and match them with people who plan on staying a while.
+          </p>
           <div class="hero-actions">
-            <a href="properties.html" class="btn btn-ochre">Browse properties</a>
+            <a href="properties.html" class="btn btn-ochre"
+              >Browse properties</a
+            >
             <a href="#why" class="btn btn-outline">Why Fernhill</a>
           </div>
         </div>
@@ -61,7 +98,10 @@
         <div class="section-head">
           <p class="eyebrow eyebrow-dark">Why Fernhill</p>
           <h2>Every listing earns its place here.</h2>
-          <p class="section-sub">We turn away more homes than we list. Tap a principle to see what it means in practice.</p>
+          <p class="section-sub">
+            We turn away more homes than we list. Tap a principle to see what it
+            means in practice.
+          </p>
         </div>
 
         <div class="principles" id="principles">
@@ -72,7 +112,11 @@
               <span class="principle-icon" aria-hidden="true"></span>
             </button>
             <div class="principle-panel">
-              <p>We inspect the bones before the finish. Structural timber, foundation health and insulation are checked before a home ever gets photographed — long before it earns a listing page.</p>
+              <p>
+                We inspect the bones before the finish. Structural timber,
+                foundation health and insulation are checked before a home ever
+                gets photographed — long before it earns a listing page.
+              </p>
             </div>
           </article>
 
@@ -83,18 +127,28 @@
               <span class="principle-icon" aria-hidden="true"></span>
             </button>
             <div class="principle-panel">
-              <p>Reclaimed oak, local stone, low-VOC finishes. Where we can trace where a material came from, we tell you — in the listing, not in small print.</p>
+              <p>
+                Reclaimed oak, local stone, low-VOC finishes. Where we can trace
+                where a material came from, we tell you — in the listing, not in
+                small print.
+              </p>
             </div>
           </article>
 
           <article class="principle" data-open="false">
             <button class="principle-toggle" aria-expanded="false">
               <span class="principle-index">03</span>
-              <span class="principle-title">Neighbourhoods, not just addresses</span>
+              <span class="principle-title"
+                >Neighbourhoods, not just addresses</span
+              >
               <span class="principle-icon" aria-hidden="true"></span>
             </button>
             <div class="principle-panel">
-              <p>Every listing includes a short walk-through of what's nearby on foot — the baker, the allotments, the school run — written by someone who actually walked it.</p>
+              <p>
+                Every listing includes a short walk-through of what's nearby on
+                foot — the baker, the allotments, the school run — written by
+                someone who actually walked it.
+              </p>
             </div>
           </article>
 
@@ -105,7 +159,10 @@
               <span class="principle-icon" aria-hidden="true"></span>
             </button>
             <div class="principle-panel">
-              <p>No handoffs between viewing and completion. The person who shows you the home is the person who carries the paperwork home.</p>
+              <p>
+                No handoffs between viewing and completion. The person who shows
+                you the home is the person who carries the paperwork home.
+              </p>
             </div>
           </article>
         </div>
@@ -121,14 +178,19 @@
         <div class="property-grid" id="featured-grid"></div>
 
         <div class="featured-cta">
-          <a href="properties.html" class="btn btn-outline-dark">See all properties</a>
+          <a href="properties.html" class="btn btn-outline-dark"
+            >See all properties</a
+          >
         </div>
       </section>
 
       <!-- ================= CTA BANNER ================= -->
       <section class="cta-banner">
         <h2>Thinking about your next move?</h2>
-        <p>Tell us what you're looking for and we'll get in touch — no automated listings, no cold calls.</p>
+        <p>
+          Tell us what you're looking for and we'll get in touch — no automated
+          listings, no cold calls.
+        </p>
         <a href="ContactPage.html" class="btn btn-cream">Get in touch</a>
       </section>
     </main>

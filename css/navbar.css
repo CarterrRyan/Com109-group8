@@ -55,7 +55,9 @@
   color: var(--bg-main);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .nav-links a:hover,
