@@ -22,6 +22,7 @@ body {
     justify-content: center;
 }
 
+/* opacity separated in a pseudo-element to preserve text clarity */
 .contact-hero::before {
     content: "";
     inset: 0;
@@ -35,7 +36,7 @@ body {
     margin-bottom: -2px;
 }
 
-.contact-hero header {
+.contact-hero h1 {
     position: relative;
     z-index: 2;
     font-size: 2.5rem;
@@ -48,7 +49,7 @@ body {
 
 
 
-.contact-content header, .modal-card header {
+.contact-content h2, .modal-card h2 {
     font-family: var(--font-display);
     color: var(--primary);
     font-size: 2rem;
@@ -66,7 +67,7 @@ body {
     gap: 1rem;
 }
 
-.flex-form {
+.flex-container, .flex-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -93,6 +94,7 @@ body {
     border-color: color-mix(in srgb, var(--border), black 20%);
 }
 
+/* Injected via Javascript during invalid inputs */
 input.is-invalid, textarea.is-invalid{
     border-color: #d9534f;
     background-color: #fdf7f7;
