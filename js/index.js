@@ -1,5 +1,4 @@
 $(function () {
-
   // ---------- "Why Fernhill" accordion ----------
   // Click a principle to reveal its detail; closes any other open one
   // so the reader stays focused on a single point at a time.
@@ -7,8 +6,11 @@ $(function () {
     const $principle = $(this).closest(".principle");
     const isOpen = $principle.attr("data-open") === "true";
 
-    $(".principle").not($principle).attr("data-open", "false")
-      .find(".principle-toggle").attr("aria-expanded", "false");
+    $(".principle")
+      .not($principle)
+      .attr("data-open", "false")
+      .find(".principle-toggle")
+      .attr("aria-expanded", "false");
 
     $principle.attr("data-open", !isOpen);
     $(this).attr("aria-expanded", !isOpen);
@@ -25,7 +27,8 @@ $(function () {
       price: 289000,
       address: "4 Millstream Lane, Fernhill",
       image: "https://picsum.photos/seed/fernhill1/600/450",
-      description: "A converted stone mill with exposed beams and a private stream frontage."
+      description:
+        "A converted stone mill with exposed beams and a private stream frontage.",
     },
     {
       id: 2,
@@ -34,8 +37,9 @@ $(function () {
       price: 415000,
       address: "12 Oakwood Drive, Ashbury",
       image: "https://picsum.photos/seed/fernhill2/600/450",
-      description: "Spacious detached house with a south-facing garden, close to good schools."
-    }
+      description:
+        "Spacious detached house with a south-facing garden, close to good schools.",
+    },
   ];
 
   const $featuredGrid = $("#featured-grid");
@@ -43,17 +47,20 @@ $(function () {
   const currency = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   });
 
   // Build a card for a single featured property
   function buildFeaturedCard(property) {
-    const $card = $("<article>", { class: "property-card", "data-id": property.id });
+    const $card = $("<article>", {
+      class: "property-card",
+      "data-id": property.id,
+    });
 
     const $imageWrap = $("<div>", { class: "card-image-wrap" });
     $imageWrap.append(
       $("<img>", { src: property.image, alt: property.title, loading: "lazy" }),
-      $("<span>", { class: "card-type-tag", text: property.type })
+      $("<span>", { class: "card-type-tag", text: property.type }),
     );
 
     const $body = $("<div>", { class: "card-body" });
@@ -61,7 +68,7 @@ $(function () {
       $("<p>", { class: "card-price", text: currency.format(property.price) }),
       $("<h3>", { class: "card-title", text: property.title }),
       $("<p>", { class: "card-address", text: property.address }),
-      $("<p>", { class: "card-description", text: property.description })
+      $("<p>", { class: "card-description", text: property.description }),
     );
 
     $card.append($imageWrap, $body);
@@ -90,5 +97,4 @@ $(function () {
 
   // Initial render
   revealOnScroll();
-
 });

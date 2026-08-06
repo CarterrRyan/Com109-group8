@@ -1,5 +1,5 @@
 $(function () {
-    //Init property objects
+  //Init property objects
   const properties = [
     {
       id: 1,
@@ -11,8 +11,9 @@ $(function () {
       bathrooms: 1,
       area: 78,
       image: "https://picsum.photos/seed/fernhill1/600/450",
-      description: "A converted stone mill with exposed beams and a private stream frontage.",
-      featured: true
+      description:
+        "A converted stone mill with exposed beams and a private stream frontage.",
+      featured: true,
     },
     {
       id: 2,
@@ -24,8 +25,9 @@ $(function () {
       bathrooms: 2,
       area: 142,
       image: "https://picsum.photos/seed/fernhill2/600/450",
-      description: "Spacious detached house with a south-facing garden, close to good schools.",
-      featured: true
+      description:
+        "Spacious detached house with a south-facing garden, close to good schools.",
+      featured: true,
     },
     {
       id: 3,
@@ -37,8 +39,9 @@ $(function () {
       bathrooms: 1,
       area: 54,
       image: "https://picsum.photos/seed/fernhill3/600/450",
-      description: "Bright top-floor apartment with balcony views over the harbour.",
-      featured: false
+      description:
+        "Bright top-floor apartment with balcony views over the harbour.",
+      featured: false,
     },
     {
       id: 4,
@@ -50,8 +53,9 @@ $(function () {
       bathrooms: 1,
       area: 96,
       image: "https://picsum.photos/seed/fernhill4/600/450",
-      description: "Single-storey living with a recently renovated kitchen and utility room.",
-      featured: false
+      description:
+        "Single-storey living with a recently renovated kitchen and utility room.",
+      featured: false,
     },
     {
       id: 5,
@@ -63,8 +67,9 @@ $(function () {
       bathrooms: 3,
       area: 178,
       image: "https://picsum.photos/seed/fernhill5/600/450",
-      description: "A generous family home with a home office and double garage.",
-      featured: false
+      description:
+        "A generous family home with a home office and double garage.",
+      featured: false,
     },
     {
       id: 6,
@@ -76,8 +81,9 @@ $(function () {
       bathrooms: 1,
       area: 41,
       image: "https://picsum.photos/seed/fernhill6/600/450",
-      description: "Compact studio flat, ideal as a first home or rental investment.",
-      featured: false
+      description:
+        "Compact studio flat, ideal as a first home or rental investment.",
+      featured: false,
     },
     {
       id: 7,
@@ -89,8 +95,9 @@ $(function () {
       bathrooms: 1,
       area: 68,
       image: "https://picsum.photos/seed/fernhill7/600/450",
-      description: "A cosy two-bedroom cottage with a wood-burning stove and small courtyard.",
-      featured: false
+      description:
+        "A cosy two-bedroom cottage with a wood-burning stove and small courtyard.",
+      featured: false,
     },
     {
       id: 8,
@@ -102,9 +109,10 @@ $(function () {
       bathrooms: 2,
       area: 104,
       image: "https://picsum.photos/seed/fernhill8/600/450",
-      description: "Level-access bungalow backing onto open fields, quiet cul-de-sac location.",
-      featured: false
-    }
+      description:
+        "Level-access bungalow backing onto open fields, quiet cul-de-sac location.",
+      featured: false,
+    },
   ];
 
   const $grid = $("#property-grid");
@@ -113,21 +121,27 @@ $(function () {
   const $typeFilter = $("#type-filter");
   const $sortSelect = $("#sort-select");
   const $searchInput = $("#search-input");
+  const interestedProperty = JSON.parse(
+    localStorage.getItem("interestedProperty") || "{}",
+  );
 
   const currency = new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency: "GBP",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   });
 
   // Build a card for a single property
   function buildCard(property) {
-    const $card = $("<article>", { class: "property-card", "data-id": property.id });
+    const $card = $("<article>", {
+      class: "property-card",
+      "data-id": property.id,
+    });
 
     const $imageWrap = $("<div>", { class: "card-image-wrap" });
     $imageWrap.append(
       $("<img>", { src: property.image, alt: property.title, loading: "lazy" }),
-      $("<span>", { class: "card-type-tag", text: property.type })
+      $("<span>", { class: "card-type-tag", text: property.type }),
     );
 
     const $body = $("<div>", { class: "card-body" });
@@ -135,17 +149,31 @@ $(function () {
       $("<p>", { class: "card-price", text: currency.format(property.price) }),
       $("<h3>", { class: "card-title", text: property.title }),
       $("<p>", { class: "card-address", text: property.address }),
-      $("<p>", { class: "card-description", text: property.description })
+      $("<p>", { class: "card-description", text: property.description }),
     );
 
     const $stats = $("<div>", { class: "card-stats" });
     $stats.append(
       $("<span>").append(`${property.bedrooms} bed`),
       $("<span>").append(`${property.bathrooms} bath`),
-      $("<span>").append(`${property.area} m²`)
+      $("<span>").append(`${property.area} m²`),
     );
 
-    $body.append($stats);
+    const $registerBtn = $("<button>", {
+      class:
+        interestedProperty.property === property.id
+          ? "register-btn-interested"
+          : "register-btn",
+      text:
+        interestedProperty.property === property.id
+          ? "Interest Registered"
+          : "Register Interest",
+      disabled: interestedProperty.property === property.id,
+    });
+
+    $registerBtn.on("click", () => registerInterest(property));
+
+    $body.append($stats, $registerBtn);
     $card.append($imageWrap, $body);
 
     return $card;
@@ -166,14 +194,15 @@ $(function () {
 
     $resultCount.text(list.length);
   }
-// update grid based on fitlers, sort and search
+  // update grid based on fitlers, sort and search
   function update() {
     const selectedType = $typeFilter.val();
     const sortValue = $sortSelect.val();
     const searchTerm = $searchInput.val().trim().toLowerCase();
 
     let result = properties.filter(function (property) {
-      const matchesType = selectedType === "all" || property.type === selectedType;
+      const matchesType =
+        selectedType === "all" || property.type === selectedType;
       const matchesSearch =
         searchTerm === "" ||
         property.title.toLowerCase().includes(searchTerm) ||
@@ -199,10 +228,18 @@ $(function () {
     render(result);
   }
 
+  function registerInterest(property) {
+    window.localStorage.setItem(
+      "selectedProperty",
+      JSON.stringify({ ...property, date: new Date().toISOString() }),
+    );
+    window.location.href = "ContactPage.html";
+  }
+
   $typeFilter.on("change", update);
   $sortSelect.on("change", update);
   $searchInput.on("input", update);
 
-// Initial render
+  // Initial render
   update();
 });
