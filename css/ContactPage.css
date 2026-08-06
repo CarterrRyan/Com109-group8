@@ -102,6 +102,12 @@ textarea.is-invalid {
   background-color: #fdf7f7;
 }
 
+#company-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-block-end: 0.5rem;
+}
+
 .error-message {
   color: #d9534f;
   font-size: 0.85rem;
