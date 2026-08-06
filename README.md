@@ -17,4 +17,4 @@ The project is a property-listing website built as a static front-end experience
 
 ## Repository
 Shared Git repository:
-https://github.com/CarterrRyan/Com109-group8
+https://github.com/CarterrRyan/Com109-group8.git
