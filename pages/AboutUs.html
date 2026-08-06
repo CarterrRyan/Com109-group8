@@ -7,12 +7,34 @@
         <link rel="icon" href="../images/favicon.ico" sizes="any">
         <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        >
         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/AboutUs.css">
-        <title>About Us</title>
+        <link rel="stylesheet" href="../css/navbar.css">
+        <title>Fernhill | About Us</title>
     </head>
     <body>
+        <header class="site-nav">
+            <div class="wrap nav-inner">
+                <a class="nav-logo" href="index.html" aria-label="Go to homepage">
+                    <img src="../images/website_logo.png" alt="Fernhill logo">
+                </a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="nav-toggle-icon" aria-hidden="true"></span>
+                </button>
+                <nav id="primary-nav" class="nav-links" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="properties.html">Properties</a>
+                    <a href="AboutUs.html">About Us</a>
+                    <a href="ContactPage.html">Contact Us</a>
+                </nav>
+            </div>
+        </header>
+
         <main class="about-container">
             <section class="about-hero">
                 <div class="wrap">
@@ -23,14 +45,14 @@
 
             <section class="about-content wrap">
                 <div class="about-logo">
-                    <img src="../images/website_logo.png" alt="Company Logo">
+                    <img src="../images/website_logo.png" alt="Fernhill logo">
                 </div>
 
                 <div class="about-grid">
                     <div class="about-section">
                         <header>OUR STORY</header>
                         <div class="about-text">
-                            <p>Prime Nest was founded with one simple goal: to make finding the perfect property easier, more transparent, and less stressful.
+                            <p>Fernhill was founded with one simple goal: to make finding the perfect property easier, more transparent, and less stressful.
                                 We understand that buying, selling, or renting a home is one of life's biggest decisions, 
                                 so we aim to provide honest advice and outstanding customer service every step of the way.</p>
                         </div>
@@ -39,7 +61,7 @@
                     <div class="about-section">
                         <header>OUR MISSION</header>
                         <div class="about-text">
-                            <p>At Prime Nest, our mission is to connect people with properties that suit their needs while delivering a professional, friendly, and reliable service. 
+                            <p>At Fernhill, our mission is to connect people with properties that suit their needs while delivering a professional, friendly, and reliable service. 
                                 We are committed to making the property journey as straightforward as possible by offering expert guidance, quality listings, and support from start to finish.</p>
                         </div>
                     </div>
@@ -49,7 +71,7 @@
                         <div class="about-text">
                             <ul>
                                 <li>Professional and friendly customer service</li>
-                                <li>Wide range of quality properties across the NI</li>
+                                <li>Wide range of quality properties across Northern Ireland</li>
                                 <li>Honest advice with no hidden surprises</li>
                                 <li>Easy-to-use website with advanced property search</li>
                                 <li>Dedicated support throughout your property journey</li>
@@ -60,5 +82,7 @@
                 </div>
             </section>
         </main>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="../js/nav.js"></script>
     </body>
 </html>
